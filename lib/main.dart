@@ -45,3 +45,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+/*
+  git add .
+  git commit -m " ex.... "
+  git push
+*/

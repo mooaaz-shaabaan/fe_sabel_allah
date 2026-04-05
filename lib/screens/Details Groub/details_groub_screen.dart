@@ -66,11 +66,10 @@ class DetailsGroubScreen extends StatelessWidget {
                     // 3. محتوى التبويبات (TabBarView)
                     Expanded(
                       child: TabBarView(
-                        
                         children: [
-                          _buildMembersList(),
-                          _buildVisitsList(),
-                          _buildKhrogsList(),
+                          _buildMembersList(), 
+                          _buildVisitsList(), 
+                          _buildKhrogsList(), 
                         ],
                       ),
                     ),
