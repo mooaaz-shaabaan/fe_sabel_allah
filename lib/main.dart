@@ -1,5 +1,5 @@
 import 'package:fe_sabel_allah/firebase_options.dart';
-import 'package:fe_sabel_allah/screens/add_%7Bexit_and_visits%7D_record_screen/add_exit_record_screen.dart';
+import 'package:fe_sabel_allah/screens/login/loginScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const AddExitRecordScreen(),
+      child: const Loginscreen(),
     );
   }
 }
