@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../const/images.dart';
+import '../../../model/card_model.dart';
 
 class MemberCard extends StatelessWidget {
-  const MemberCard({super.key, required this.photoNum, required this.onTap});
-  final int photoNum;
+  const MemberCard({super.key, required this.onTap, required this.membersData});
 
   final Function() onTap;
+  final MembersModel membersData;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class MemberCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        'محمد عبد الرحمن',
+                        membersData.name,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
@@ -42,7 +43,7 @@ class MemberCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '٢٥ سنة',
+                        '${membersData.age} سنة',
                         style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                       ),
                       Text(
@@ -59,19 +60,9 @@ class MemberCard extends StatelessWidget {
                       CircleAvatar(
                         backgroundColor: Colors.red,
                         radius: 30.r,
-                        backgroundImage: AssetImage(
-                          'assets/islamic_avatar/$photoNum.png',
-                        ),
+                        backgroundImage: AssetImage(membersData.photo),
                       ),
-                      CircleAvatar(
-                        radius: 10.r,
-                        backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.male,
-                          size: 12.sp,
-                          color: Colors.white,
-                        ),
-                      ),
+                    
                     ],
                   ),
                 ],
@@ -93,9 +84,13 @@ class MemberCard extends StatelessWidget {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.check_circle,
+                          membersData.isStudent
+                              ? Icons.check_circle
+                              : Icons.cancel,
                           size: 14.sp,
-                          color: Colors.green,
+                          color: membersData.isStudent
+                              ? Colors.green
+                              : Colors.red,
                         ),
                         SizedBox(width: 4.w),
                         Text(
@@ -134,3 +129,7 @@ class MemberCard extends StatelessWidget {
     );
   }
 }
+
+
+
+

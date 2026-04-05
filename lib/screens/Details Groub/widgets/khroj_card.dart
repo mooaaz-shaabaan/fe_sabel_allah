@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../const/images.dart';
+import '../../../model/card_model.dart';
 
 class KhrogCard extends StatelessWidget {
-  const KhrogCard({super.key, required this.photoNum});
-  final int photoNum;
-  final bool isAvilable = false;
+  const KhrogCard({super.key, required this.membersData});
+  final MembersModel membersData;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class KhrogCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'محمد عبد الرحمن',
+                      membersData.name,
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class KhrogCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '٢٥ سنة',
+                      '${membersData.age} سنة',
                       style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                     ),
                     Text(
@@ -56,14 +56,7 @@ class KhrogCard extends StatelessWidget {
                     CircleAvatar(
                       backgroundColor: Colors.red,
                       radius: 30.r,
-                      backgroundImage: AssetImage(
-                        'assets/islamic_avatar/$photoNum.png',
-                      ),
-                    ),
-                    CircleAvatar(
-                      radius: 10.r,
-                      backgroundColor: Colors.blue,
-                      child: Icon(Icons.male, size: 12.sp, color: Colors.white),
+                      backgroundImage: AssetImage(membersData.photo),
                     ),
                   ],
                 ),
@@ -80,14 +73,14 @@ class KhrogCard extends StatelessWidget {
                     vertical: 4.h,
                   ),
                   decoration: BoxDecoration(
-                    color: isAvilable
+                    color: membersData.khareg
                         ? const Color(0xFFE8F2E7)
                         : const Color.fromARGB(255, 242, 231, 231),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
                     children: [
-                      if (isAvilable) ...[
+                      if (membersData.khareg) ...[
                         Icon(
                           Icons.check_circle,
                           size: 14.sp,
