@@ -23,20 +23,20 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.fe_sabel_allah"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        
+        // تعديل الـ minSdk ليكون 21 على الأقل لأن مكتبات فيسبوك الحديثة تتطلبه
+        minSdk = flutter.minSdkVersion 
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // ✅ إضافة الـ MultiDex لضمان ربط كل المكاتب ببعضها (حل مشكلة الـ MissingPlugin)
+        multiDexEnabled = true 
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -44,4 +44,9 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // ✅ إضافة مكتبة الـ multidex لضمان استقرار التطبيق
+    implementation("androidx.multidex:multidex:2.0.1")
 }

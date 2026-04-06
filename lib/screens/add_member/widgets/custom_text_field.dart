@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final int maxLines;
   final TextEditingController? controller;
   final TextInputType keyboardType; // إضافة نوع الكيبورد
+  final String? Function(String?)? validator;
 
   const CustomTextField({
     super.key,
@@ -14,7 +15,8 @@ class CustomTextField extends StatelessWidget {
     required this.icon,
     this.maxLines = 1,
     this.controller,
-    this.keyboardType = TextInputType.text, // الافتراضي نص
+    this.keyboardType = TextInputType.text,
+    this.validator, // الافتراضي نص
   });
 
   @override
@@ -31,18 +33,19 @@ class CustomTextField extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 12.h),
-            child: Icon(icon, color: Colors.grey, size: 22.sp),
+            child: Icon(icon, color: Colors.grey, size: 22..sp),
           ),
           Expanded(
-            child: TextField(
+            child: TextFormField(
               controller: controller,
+              validator: validator, // لازم تمرر الـ validator هنا
               maxLines: maxLines,
               keyboardType: keyboardType, // ربط نوع الكيبورد
-              style: TextStyle(color: Colors.black, fontSize: 14.sp),
+              style: TextStyle(color: Colors.black, fontSize: 14..sp),
               textAlign: TextAlign.right,
               decoration: InputDecoration(
                 hintText: hint,
-                hintStyle: TextStyle(fontSize: 14.sp, color: Colors.grey),
+                hintStyle: TextStyle(fontSize: 14..sp, color: Colors.grey),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 10.w,

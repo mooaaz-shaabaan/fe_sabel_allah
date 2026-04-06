@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../const/colors.dart';
 
 class TopSectionAddMember extends StatelessWidget {
-  const TopSectionAddMember({super.key});
+  const TopSectionAddMember({super.key, required this.isEditing});
+  final bool isEditing;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,14 @@ class TopSectionAddMember extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               Text(
-                "إضافة عضو جديد",
-                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w600),
+                isEditing ? "تعديل عضو" : "إضافة عضو جديد",
+                style: TextStyle(fontSize: 30..sp, fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 5.h),
               Text(
                 'ID: FD88A',
                 style: TextStyle(
-                  fontSize: 18.sp,
+                  fontSize: 18..sp,
                   color: Colors.white70,
                   fontWeight: FontWeight.w600,
                 ),
@@ -40,7 +41,7 @@ class TopSectionAddMember extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
                 color: AppColors.white,
-                size: 25.sp,
+                size: 25..sp,
               ),
             ),
           ),

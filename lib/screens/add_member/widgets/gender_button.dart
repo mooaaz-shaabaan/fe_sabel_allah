@@ -29,7 +29,7 @@ class GenderButton extends StatelessWidget {
             child: Text(
               label,
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 14..sp,
                 color: isSelected ? Colors.white : Colors.black,
                 fontWeight: FontWeight.bold,
               ),

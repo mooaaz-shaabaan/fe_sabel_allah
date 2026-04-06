@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fe Sabel Allah</string>
+
+    <string name="facebook_app_id">940552338698383</string>
+    <string name="facebook_client_token">e1289b595a453ca5d8eabc2cd5fa15f5</string>
+    <string name="fb_login_protocol_scheme">fb940552338698383</string>
+</resources>
